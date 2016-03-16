@@ -11,6 +11,11 @@ public class BancoDePalavras {
 	private static BancoDePalavras instancia;
 	private static final String FILE_NAME = "palavras.txt";
 	
+	/**
+	 * Construtor privado para leitura das palavras
+	 * 
+	 * @throws IOException
+	 */
 	private BancoDePalavras() throws IOException{
 		palavras = new ArrayList<String>();
 		
@@ -27,12 +32,21 @@ public class BancoDePalavras {
 		lerArq.close();
 	}
 	
+	/**
+	 * Método para obter a instancia do singleton BancoDePalavras
+	 * @return instancia
+	 * @throws IOException
+	 */
 	public static BancoDePalavras getInstancia() throws IOException{
 		if(instancia == null)
 			instancia = new BancoDePalavras();
 		return instancia;
 	}
 	
+	/**
+	 * Obtém palavra aleatória do banco de palavras
+	 * @return
+	 */
 	public String getPalavraAleatoria(){
 		int randomNum = (int)(Math.random() * palavras.size()); 
 		return palavras.get(randomNum);
