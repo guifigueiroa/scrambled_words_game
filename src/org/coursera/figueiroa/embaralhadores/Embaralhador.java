@@ -1,4 +1,4 @@
-package org.coursera.figueiroa;
+package org.coursera.figueiroa.embaralhadores;
 
 public interface Embaralhador {
 
@@ -7,5 +7,5 @@ public interface Embaralhador {
 	 * 
 	 * @return palavra embaralhada
 	 */
-	public String getPalavraEmbaralhada();
+	public String getPalavraEmbaralhada(String palavra);
 }

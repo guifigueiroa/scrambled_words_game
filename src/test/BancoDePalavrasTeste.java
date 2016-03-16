@@ -26,7 +26,6 @@ public class BancoDePalavrasTeste {
 	public void testeGetPalavraAleatoria(){
 		String palavra = palavras.getPalavraAleatoria();
 		assertTrue(palavra.length() > 0);
-		System.out.println(palavra);
 	}
 
 }

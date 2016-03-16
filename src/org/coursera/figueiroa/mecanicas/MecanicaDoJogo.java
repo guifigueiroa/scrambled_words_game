@@ -1,4 +1,4 @@
-package org.coursera.figueiroa;
+package org.coursera.figueiroa.mecanicas;
 
 public interface MecanicaDoJogo {
 	
@@ -26,4 +26,11 @@ public interface MecanicaDoJogo {
 	 * @return
 	 */
 	public int getPontuacao();
+	
+	/**
+	 * Cria uma nova rodada
+	 * @param palavra a ser embaralhada
+	 * @return palavra embaralhada
+	 */
+	public String novaRodada(String palavra);
 }

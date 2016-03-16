@@ -25,7 +25,7 @@ public class BancoDePalavras {
 		String palavra = lerArq.readLine();
 			
 		while (palavra != null) { 
-			palavras.add(palavra);
+			palavras.add(palavra.toUpperCase());
 			palavra = lerArq.readLine();
 		}
 		
