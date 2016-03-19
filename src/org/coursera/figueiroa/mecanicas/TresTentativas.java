@@ -4,23 +4,26 @@ import org.coursera.figueiroa.embaralhadores.Embaralhador;
 import org.coursera.figueiroa.embaralhadores.FabricaDeEmbaralhadores;
 
 /**
- * O tipo do jogo MorteSubita permite que o jogador tente acertar cada
- * palavra somente uma vez. E, para cada palavra acertada somam-se
- * 10 pontos ao score do jogador.
- * O jogo pode ser jogado infinitamente, até o primeiro erro.
+ * No tipo de jogo TresTentativas o jogador pode tentar acertar
+ * cada palavra por 3 vezes.
+ * O jogo termina somente quando ele erra ou quando 10 palavras são acertadas.
+ * A pontuação do jogo é calculada somando 10 pontos para cada letra da 
+ * palavra acertada.
  * 
  * @author guilhermefigueiroa
  *
  */
-public class MorteSubita implements MecanicaDoJogo {
+public class TresTentativas implements MecanicaDoJogo {
 
 	private boolean jogoFinalizado = false;
 	private int pontuacao;
 	private Embaralhador embaralhador;
 	private String palavra;
 	private String palavraEmbaralhada;
+	private int tentativas = 0;
+	private int acertos = 0;
 	
-	MorteSubita(){
+	TresTentativas(){
 		embaralhador = FabricaDeEmbaralhadores.getEmbaralhadorAleatorio();
 	}
 	
@@ -31,19 +34,25 @@ public class MorteSubita implements MecanicaDoJogo {
 
 	@Override
 	public boolean podeTentarNovamente() {
-		return false;
+		if(tentativas < 3 && acertos < 10) {
+			return true;
+		} else {
+			jogoFinalizado = true;
+			return false;	
+		}
+		
 	}
 
 	@Override
 	public boolean adivinharPalavra(String palavra) {
+		tentativas++;
 		if (this.palavra.equalsIgnoreCase(palavra)){
-			pontuacao += 10;
+			pontuacao += palavra.length() * 10;
+			acertos++;
 			return true;
 		} else {
-			jogoFinalizado = true;
 			return false;
 		}
-			
 	}
 
 	@Override
@@ -55,6 +64,7 @@ public class MorteSubita implements MecanicaDoJogo {
 	public String novaRodada(String palavra) {
 		this.palavra = palavra;
 		this.palavraEmbaralhada = embaralhador.getPalavraEmbaralhada(palavra);
+		tentativas = 0;
 		
 		return this.palavraEmbaralhada;
 	}

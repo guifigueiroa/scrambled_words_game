@@ -3,4 +3,6 @@ encoding//src/org/coursera/figueiroa/BancoDePalavras.java=UTF-8
 encoding//src/org/coursera/figueiroa/Principal.java=UTF-8
 encoding//src/org/coursera/figueiroa/embaralhadores/FabricaDeEmbaralhadores.java=UTF-8
 encoding//src/org/coursera/figueiroa/mecanicas/MecanicaDoJogo.java=UTF-8
+encoding//src/org/coursera/figueiroa/mecanicas/MorteSubita.java=UTF-8
+encoding//src/org/coursera/figueiroa/mecanicas/TresTentativas.java=UTF-8
 encoding/palavras.txt=UTF-8

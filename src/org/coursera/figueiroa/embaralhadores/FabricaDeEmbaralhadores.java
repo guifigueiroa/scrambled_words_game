@@ -7,11 +7,13 @@ public class FabricaDeEmbaralhadores {
 	 * @return
 	 */
 	public static Embaralhador getEmbaralhadorAleatorio(){
-		int randomNum = (int)(Math.random() * 1);
+		int randomNum = (int)(Math.random() * 2);
 		
 		switch(randomNum) {
 		case 0:
 			return new EmbaralhadorInverso();
+		case 1:
+			return new EmbaralhadorRandomico();
 		default:
 			return null;
 		}
