@@ -29,6 +29,9 @@ public class TresTentativas implements MecanicaDoJogo {
 	
 	@Override
 	public boolean jogoFinalizado() {
+		if(tentativas >= 3 || acertos >= 10) {
+			jogoFinalizado = true;
+		}
 		return jogoFinalizado;
 	}
 
@@ -37,7 +40,6 @@ public class TresTentativas implements MecanicaDoJogo {
 		if(tentativas < 3 && acertos < 10) {
 			return true;
 		} else {
-			jogoFinalizado = true;
 			return false;	
 		}
 		

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class MorteSubitaTeste {
 
-	MecanicaDoJogo mecanica;
+	private MecanicaDoJogo mecanica;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -29,6 +29,7 @@ public class MorteSubitaTeste {
 		assertEquals("EMREHLIUG", mecanica.novaRodada("GUILHERME"));
 		assertFalse(mecanica.adivinharPalavra("OUTRAPALAVRA"));
 		assertTrue(mecanica.jogoFinalizado());
+		assertFalse(mecanica.podeTentarNovamente());
 		
 		assertEquals(10, mecanica.getPontuacao());
 	}
